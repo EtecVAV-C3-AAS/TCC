@@ -1,14 +1,14 @@
 
 :root{
-  --cor-primaria: #0d6efd;      /* azul vivo */
-  --cor-secundaria: #198754;    /* verde */
+  --cor-primaria: #0d6efd;      
+  --cor-secundaria: #198754;   
   --cor-fundo: #ffffff;
   --texto: #212529;
   --alto-contraste-bg: #000000;
   --alto-contraste-text: #ffffff;
   --radius: 12px;
   --sombra: 0 6px 18px rgba(16,24,40,0.08);
-  --foco: 3px solid #ffbf47; /* amarelo acessível para foco */
+  --foco: 3px solid #ffbf47; 
 }
 
 
