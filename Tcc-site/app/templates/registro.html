@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card rounded-4 shadow-sm"><div class="card-body">
+      <h2 class="card-title">Criar conta</h2>
+      <form method="post">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome de usuário</label>
+          <input type="text" id="nome" name="nome" class="form-control" required autocomplete="username" />
+        </div>
+        <div class="mb-3">
+          <label for="senha" class="form-label">Senha</label>
+          <input type="password" id="senha" name="senha" class="form-control" required autocomplete="new-password" />
+        </div>
+        <button class="btn btn-success btn-lg" type="submit">Criar</button>
+      </form>
+    </div></div>
+  </div>
+</div>
+{% endblock %}

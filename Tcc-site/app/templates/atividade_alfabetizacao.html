@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="p-4 bg-white rounded-4 shadow-sm" aria-labelledby="titulo-alf">
+  <h2 id="titulo-alf">Alfabetização</h2>
+  <p>Escolha a letra correta para cada palavra.</p>
+  <form method="post" action="{{ url_for('alfabetizacao.enviar') }}">
+    <fieldset>
+      <legend class="h5">Quiz</legend>
+      <div class="mb-3">
+        <label class="form-label">1) _ola</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1a" value="a" required><label for="q1a" class="form-check-label">L</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1b" value="b"><label for="q1b" class="form-check-label">B</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1c" value="c"><label for="q1c" class="form-check-label">G</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">2) Ca__o</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2a" value="a" required><label for="q2a" class="form-check-label">A</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2b" value="b"><label for="q2b" class="form-check-label">F</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2c" value="c"><label for="q2c" class="form-check-label">B</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">3) _sas</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3a" value="a" required><label for="q3a" class="form-check-label">A</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3b" value="b"><label for="q3b" class="form-check-label">B</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3c" value="c"><label for="q3c" class="form-check-label">C</label></div>
+      </div>
+    </fieldset>
+    <button class="btn btn-primary btn-lg" type="submit">Enviar</button>
+  </form>
+</section>
+{% endblock %}
