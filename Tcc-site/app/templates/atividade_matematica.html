@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="p-4 bg-white rounded-4 shadow-sm" aria-labelledby="titulo-mat">
+  <h2 id="titulo-mat" class="mb-3 text-primary">🔢 Matemática</h2>
+  <form method="post" action="{{ url_for('matematica.enviar') }}">
+    <fieldset>
+      <legend class="h5">Quiz</legend>
+      <div class="mb-3">
+        <label class="form-label">1) Quanto é 2 + 3?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="mq1a" value="a" required><label for="mq1a" class="form-check-label">4</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="mq1b" value="b"><label for="mq1b" class="form-check-label">5</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="mq1c" value="c"><label for="mq1c" class="form-check-label">6</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">2) Qual número vem depois do 7?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="mq2a" value="a" required><label for="mq2a" class="form-check-label">6</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="mq2b" value="b"><label for="mq2b" class="form-check-label">8</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="mq2c" value="c"><label for="mq2c" class="form-check-label">9</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">3) Quantos lados tem um triângulo?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="mq3a" value="a" required><label for="mq3a" class="form-check-label">3</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="mq3b" value="b"><label for="mq3b" class="form-check-label">4</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="mq3c" value="c"><label for="mq3c" class="form-check-label">5</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">4) Qual é o menor número?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="mq4a" value="a" required><label for="mq4a" class="form-check-label">2</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="mq4b" value="b"><label for="mq4b" class="form-check-label">5</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="mq4c" value="c"><label for="mq4c" class="form-check-label">8</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">5) Quanto é 10 - 4?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="mq5a" value="a" required><label for="mq5a" class="form-check-label">6</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="mq5b" value="b"><label for="mq5b" class="form-check-label">7</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="mq5c" value="c"><label for="mq5c" class="form-check-label">5</label></div>
+      </div>
+    </fieldset>
+    <button class="btn btn-primary btn-lg mt-3" type="submit">Enviar</button>
+  </form>
+</section>
+{% endblock %}

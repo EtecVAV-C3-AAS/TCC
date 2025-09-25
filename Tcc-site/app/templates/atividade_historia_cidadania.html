@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="p-4 bg-white rounded-4 shadow-sm" aria-labelledby="titulo-hist">
+  <h2 id="titulo-hist" class="mb-3 text-primary">📖 História e Cidadania</h2>
+  <form method="post" action="{{ url_for('historia_cidadania.enviar') }}">
+    <fieldset>
+      <legend class="h5">Quiz</legend>
+      <div class="mb-3">
+        <label class="form-label">1) Quem é o responsável pela escola?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="hq1a" value="a" required><label for="hq1a" class="form-check-label">Diretor</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="hq1b" value="b"><label for="hq1b" class="form-check-label">Aluno</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="hq1c" value="c"><label for="hq1c" class="form-check-label">Cozinheiro</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">2) O que devemos fazer antes de atravessar a rua?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="hq2a" value="a" required><label for="hq2a" class="form-check-label">Olhar para os dois lados</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="hq2b" value="b"><label for="hq2b" class="form-check-label">Correr</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="hq2c" value="c"><label for="hq2c" class="form-check-label">Fechar os olhos</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">3) Qual dessas atitudes é cidadania?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="hq3a" value="a" required><label for="hq3a" class="form-check-label">Ajudar um colega</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="hq3b" value="b"><label for="hq3b" class="form-check-label">Jogar lixo no chão</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="hq3c" value="c"><label for="hq3c" class="form-check-label">Furar fila</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">4) O que é respeitar o próximo?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="hq4a" value="a" required><label for="hq4a" class="form-check-label">Tratar bem as pessoas</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="hq4b" value="b"><label for="hq4b" class="form-check-label">Gritar com os outros</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="hq4c" value="c"><label for="hq4c" class="form-check-label">Ignorar os amigos</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">5) O que devemos fazer com o lixo?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="hq5a" value="a" required><label for="hq5a" class="form-check-label">Jogar na lixeira</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="hq5b" value="b"><label for="hq5b" class="form-check-label">Jogar no chão</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="hq5c" value="c"><label for="hq5c" class="form-check-label">Guardar no bolso</label></div>
+      </div>
+    </fieldset>
+    <button class="btn btn-primary btn-lg mt-3" type="submit">Enviar</button>
+  </form>
+</section>
+{% endblock %}

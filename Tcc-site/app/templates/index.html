@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="p-4 bg-white rounded-4 shadow-sm text-center" aria-labelledby="boasvindas-titulo">
+  <h1 id="boasvindas-titulo" class="display-5 fw-bold text-primary mb-3">👋 Bem-vindo ao <span style="color:#198754;">EducaFeliz!</span></h1>
+  <p class="lead mb-4">Plataforma divertida, acessível e cheia de atividades para aprender brincando! <span aria-hidden="true">🎲🎨🔤</span></p>
+  <div class="mb-4">
+    <span class="badge bg-success fs-5 p-3 mx-1">Alto Contraste</span>
+    <span class="badge bg-info text-dark fs-5 p-3 mx-1">Ajuste de Fonte</span>
+    <span class="badge bg-warning text-dark fs-5 p-3 mx-1">Leitura em Voz Alta</span>
+    <span class="badge bg-primary fs-5 p-3 mx-1">Navegação Fácil</span>
+  </div>
+  <hr />
+  <p class="mb-4">Escolha uma matéria no menu acima para começar a se divertir e aprender! Se precisar de ajuda, use os botões de acessibilidade no topo da página.</p>
+  <a href="{{ url_for('dashboard.ver_dashboard') }}" class="btn btn-lg btn-success shadow" style="font-size:1.5rem; padding:1rem 2.5rem;">⭐ Ver meu progresso</a>
+</section>
+{% endblock %}

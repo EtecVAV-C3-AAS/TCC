@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="p-4 bg-white rounded-4 shadow-sm" aria-labelledby="titulo-cf">
+  <h2 id="titulo-cf">Cores e Formas</h2>
+  <p>Arraste cada forma para a área com o nome correto.</p>
+  <div class="row g-4" aria-describedby="ajuda-drag">
+    <div class="col-md-6">
+      <div class="p-3 border rounded-4">
+        <h3 class="h5">Formas</h3>
+        <div class="d-flex flex-wrap gap-3" id="itens-formas">
+          <div class="forma" draggable="true" data-nome="Círculo" tabindex="0" role="button" aria-label="Arrastar Círculo">⚪ Círculo</div>
+          <div class="forma" draggable="true" data-nome="Quadrado" tabindex="0" role="button" aria-label="Arrastar Quadrado">🟥 Quadrado</div>
+          <div class="forma" draggable="true" data-nome="Triângulo" tabindex="0" role="button" aria-label="Arrastar Triângulo">🔺 Triângulo</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="p-3 border rounded-4">
+        <h3 class="h5">Alvos</h3>
+        <div class="d-grid gap-3">
+          <div class="alvo" data-aceita="Círculo" tabindex="0" aria-label="Alvo Círculo">Solte aqui: Círculo</div>
+          <div class="alvo" data-aceita="Quadrado" tabindex="0" aria-label="Alvo Quadrado">Solte aqui: Quadrado</div>
+          <div class="alvo" data-aceita="Triângulo" tabindex="0" aria-label="Alvo Triângulo">Solte aqui: Triângulo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p id="ajuda-drag" class="form-text mt-2">Dica: use Espaço para pegar/soltar quando o item estiver focado.</p>
+  <div class="mt-3 d-flex gap-2">
+    <button class="btn btn-primary btn-lg" id="btn-verificar" type="button">Verificar</button>
+    <div id="resultado" class="fw-bold" aria-live="polite"></div>
+  </div>
+  <script>
+  let itemAtual = null;
+  function handleDragStart(e){ itemAtual = this; e.dataTransfer.setData('text/plain', this.dataset.nome); }
+  function handleDragOver(e){ e.preventDefault(); this.classList.add('alvo-sobre'); }
+  function handleDragLeave(){ this.classList.remove('alvo-sobre'); }
+  function handleDrop(e){ e.preventDefault(); this.classList.remove('alvo-sobre'); const nome = e.dataTransfer.getData('text/plain'); this.textContent = 'Solto: ' + nome; this.dataset.recebido = nome; feedbackSonoro(true); }
+  document.querySelectorAll('.forma').forEach(f=>{
+    f.addEventListener('dragstart', handleDragStart);
+    f.addEventListener('keydown', (e)=>{ if(e.code==='Space'){ itemAtual = f; f.classList.add('arrastando'); } });
+  });
+  document.querySelectorAll('.alvo').forEach(a=>{
+    a.addEventListener('dragover', handleDragOver);
+    a.addEventListener('dragleave', handleDragLeave);
+    a.addEventListener('drop', handleDrop);
+    a.addEventListener('keydown', (e)=>{ if(e.code==='Space' && itemAtual){ a.dataset.recebido = itemAtual.dataset.nome; a.textContent = 'Solto: ' + a.dataset.recebido; itemAtual.classList.remove('arrastando'); feedbackSonoro(true);} });
+  });
+  document.getElementById('btn-verificar').addEventListener('click', async ()=>{
+    const alvos = Array.from(document.querySelectorAll('.alvo'));
+    let acertos = 0; let total = alvos.length;
+    alvos.forEach(a=>{ if(a.dataset.recebido === a.dataset.aceita) acertos++; });
+    const pct = total? Math.round(acertos/total*100):0;
+    const saida = document.getElementById('resultado');
+    saida.textContent = `Acertos: ${acertos}/${total} (${pct}%)`;
+    feedbackSonoro(acertos===total);
+    await fetch("{{ url_for('cores_formas.resultado') }}", {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({acertos, total})});
+  });
+  function feedbackSonoro(ok){
+    if(window.speechSynthesis){
+      const msg = new SpeechSynthesisUtterance(ok ? 'Muito bem!' : 'Tente novamente!');
+      window.speechSynthesis.speak(msg);
+    }
+  }
+  </script>
+</section>
+{% endblock %}

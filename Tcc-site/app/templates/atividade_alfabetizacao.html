@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="p-4 bg-white rounded-4 shadow-sm" aria-labelledby="titulo-alf">
+  <h2 id="titulo-alf" class="mb-3 text-primary">🔤 Alfabetização</h2>
+  <p class="lead">Escolha a letra ou palavra correta para cada pergunta. Vamos brincar de aprender! <span aria-hidden="true">😊✏️</span></p>
+  <form method="post" action="{{ url_for('alfabetizacao.enviar') }}">
+    <fieldset>
+      <legend class="h5">Quiz</legend>
+      <div class="mb-3">
+        <label class="form-label">1) _ola</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1a" value="a" required><label for="q1a" class="form-check-label">L</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1b" value="b"><label for="q1b" class="form-check-label">B</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1c" value="c"><label for="q1c" class="form-check-label">G</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">2) Ca__o</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2a" value="a" required><label for="q2a" class="form-check-label">A</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2b" value="b"><label for="q2b" class="form-check-label">F</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2c" value="c"><label for="q2c" class="form-check-label">B</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">3) _sas</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3a" value="a" required><label for="q3a" class="form-check-label">A</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3b" value="b"><label for="q3b" class="form-check-label">B</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3c" value="c"><label for="q3c" class="form-check-label">C</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">4) Qual palavra está correta?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4a" value="a" required><label for="q4a" class="form-check-label">Casa</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4b" value="b"><label for="q4b" class="form-check-label">Caza</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4c" value="c"><label for="q4c" class="form-check-label">Cassa</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">5) Complete: O <b>_ato</b> está miando.</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5a" value="a" required><label for="q5a" class="form-check-label">G</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5b" value="b"><label for="q5b" class="form-check-label">P</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5c" value="c"><label for="q5c" class="form-check-label">R</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">6) Qual dessas é uma vogal?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q6" id="q6a" value="a" required><label for="q6a" class="form-check-label">E</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q6" id="q6b" value="b"><label for="q6b" class="form-check-label">T</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q6" id="q6c" value="c"><label for="q6c" class="form-check-label">M</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">7) Qual palavra representa um animal?</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q7" id="q7a" value="a" required><label for="q7a" class="form-check-label">Cachorro</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q7" id="q7b" value="b"><label for="q7b" class="form-check-label">Mesa</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q7" id="q7c" value="c"><label for="q7c" class="form-check-label">Janela</label></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">8) Complete: O <b>_eve</b> está voando.</label>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q8" id="q8a" value="a" required><label for="q8a" class="form-check-label">P</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q8" id="q8b" value="b"><label for="q8b" class="form-check-label">B</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q8" id="q8c" value="c"><label for="q8c" class="form-check-label">R</label></div>
+      </div>
+    </fieldset>
+    <button class="btn btn-primary btn-lg mt-3" type="submit">Enviar</button>
+  </form>
+</section>
+{% endblock %}
